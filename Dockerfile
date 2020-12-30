@@ -1,3 +1,11 @@
+FROM vignesh123456/corretto11:1.0
+
+# Set the WILDFLY_VERSION env variable
+ENV WILDFLY_VERSION 20.0.1.Final
+ENV WILDFLY_SHA1 95366b4a0c8f2e6e74e3e4000a98371046c83eeb
+ENV JBOSS_HOME /opt/connectleader/wildfly
+
+USER root
 # Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
 # Make sure the distribution is available from a well-known place
 RUN cd $HOME \
@@ -18,7 +26,7 @@ ENV LAUNCH_JBOSS_IN_BACKGROUND true
 #RUN yum install epel-release -y
 #RUN yum install jq -y
 
-ARG APP_FILE=sample.war
+ARG APP_FILE=/tmp/sample.war
 # Add your application to the deployment folder
 ADD ${APP_FILE} /opt/connectleader/wildfly/standalone/deployments/${APP_FILE}
 
