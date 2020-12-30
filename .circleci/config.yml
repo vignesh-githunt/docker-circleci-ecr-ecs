@@ -11,7 +11,10 @@ jobs:
           name: Install dependencies
           command: |
             apk add --no-cache py-pip
-            pip install awscli
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+            
       - run:
           name: Build application Docker image
           command: |
