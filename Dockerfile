@@ -16,6 +16,9 @@ RUN cd $HOME \
     && tar xf wildfly-$WILDFLY_VERSION.tar.gz \
     && mv $HOME/wildfly-$WILDFLY_VERSION $JBOSS_HOME \
     && rm wildfly-$WILDFLY_VERSION.tar.gz \
+    && sed -i 's/127.0.0.1}"/0.0.0.0}"/g' /opt/connectleader/wildfly/standalone/configuration/standalone.xml \
+    && sed -i 's/8443/443/g' /opt/connectleader/wildfly/standalone/configuration/standalone.xml \
+    && sed -i 's/8080/80/g' /opt/connectleader/wildfly/standalone/configuration/standalone.xml \
     && chown -R root:root ${JBOSS_HOME} \
     && chmod -R g+rw ${JBOSS_HOME}
 
@@ -26,7 +29,7 @@ ENV LAUNCH_JBOSS_IN_BACKGROUND true
 #RUN yum install epel-release -y
 #RUN yum install jq -y
 
-ARG APP_FILE=/tmp/sample.war
+ARG APP_FILE=tmp/sample.war
 # Add your application to the deployment folder
 ADD ${APP_FILE} /opt/connectleader/wildfly/standalone/deployments/${APP_FILE}
 

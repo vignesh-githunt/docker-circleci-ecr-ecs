@@ -52,7 +52,8 @@ jobs:
                   "name": "%s",
                   "image": "%s.dkr.ecr.%s.amazonaws.com/%s:%s",
                   "essential": true,
-                  "memoryReservation": 1000,
+                  "cpu": 128,
+                  "memoryReservation": 500,
                   "portMappings": [
                     {
                       "containerPort": 80,
