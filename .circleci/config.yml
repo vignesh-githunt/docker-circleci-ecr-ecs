@@ -71,12 +71,14 @@ jobs:
 
               # Register task definition
               json=$(aws ecs register-task-definition --container-definitions "$task_def" --family "$FAMILY")
+              OLD_TASK_ID=$(aws ecs list-tasks --cluster "$CLUSTER" --desired-status RUNNING --family "$FAMILY" | egrep "task" | tr "/" " " | tr "[" " " |  awk '{print $2}' | sed 's/"$//')
 
               # Grab revision # using regular bash and grep
               revision=$(echo "$json" | grep -o '"revision": [0-9]*' | grep -Eo '[0-9]+')
 
               # Deploy revision 
-              aws ecs stop-task --cluster "$CLUSTER" --task "$TASK":"$revision"
+              aws ecs stop-task --cluster "$CLUSTER" --task "${OLD_TASK_ID}"
+
               sleep 10
               aws ecs update-service --cluster "$CLUSTER" --service "$SERVICE" --task-definition "$TASK":"$revision"
              
