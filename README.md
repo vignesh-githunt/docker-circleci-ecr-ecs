@@ -2,7 +2,7 @@
 
 An example dockerized  "Hello World" application that will deploy to amazon ECS using CircleCi whenever the master branch is updated.
 
-### AWS
+### AWS ####
 
 You'll need to setup Amazon ECR for your docker image, in this sample it's just test-app, a variable within .circleci/config.yml
 
