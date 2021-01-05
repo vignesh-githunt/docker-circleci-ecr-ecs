@@ -1,4 +1,4 @@
-##  Docker - Git - CircleCi - AWS ECR - AWS ECS #######
+##   Git - CircleCi - AWS ECR - AWS ECS #######
 
 An example dockerized  "Hello World" application that will deploy to amazon ECS using CircleCi whenever the master branch is updated.
 
