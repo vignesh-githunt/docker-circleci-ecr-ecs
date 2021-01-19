@@ -16,7 +16,8 @@ jobs:
       - run: mvn dependency:go-offline 
       - run:
           name: build project
-           - mvn clean package
+          command: |
+            mvn package
       - store_artifacts:
           path: target/classes
           destination: docker-circleci
