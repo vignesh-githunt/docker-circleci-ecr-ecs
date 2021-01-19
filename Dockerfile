@@ -1,6 +1,6 @@
 FROM vignesh123456/corretto11:1.0
 
-# Set the WILDFLY_VERSION env variable
+# Set the WILDFLY_VERSION env variables
 ENV WILDFLY_VERSION 20.0.1.Final
 ENV WILDFLY_SHA1 95366b4a0c8f2e6e74e3e4000a98371046c83eeb
 ENV JBOSS_HOME /opt/connectleader/wildfly
