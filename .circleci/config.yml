@@ -14,14 +14,15 @@ jobs:
             apk add --no-cache py-pip=9.0.0-r1
             pip install awscli==1.11.76
       - run: mvn dependency:go-offline 
-      - run: mvn clean package
+      - run:
+          name: build project
+           - mvn clean package
       - store_artifacts:
           path: target/classes
           destination: docker-circleci
       - run:
           name: Build application Docker image
           command: |
-            mvn package
             docker build -t app .
       # If we had
       #- run:
