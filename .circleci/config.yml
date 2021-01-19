@@ -12,10 +12,12 @@ jobs:
           command: |
             apk add --no-cache py-pip=9.0.0-r1
             pip install awscli==1.11.76
+            apt install maven
             
       - run:
           name: Build application Docker image
           command: |
+            maven package
             docker build -t app .
       # If we had
       #- run:
