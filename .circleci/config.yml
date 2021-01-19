@@ -4,7 +4,7 @@ jobs:
     working_directory: /app
     docker:
       - image: docker:17.05.0-ce-git
-      - image: circleci/openjdk:11.0.1-jdk
+      - image: circleci/maven@1.0.2
     steps:
       - checkout
       - setup_remote_docker
