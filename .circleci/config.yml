@@ -4,6 +4,7 @@ jobs:
     working_directory: /app
     docker:
       - image: docker:17.05.0-ce-git
+      - image: circleci/openjdk:11.0.1-jdk
     steps:
       - checkout
       - setup_remote_docker
@@ -12,8 +13,11 @@ jobs:
           command: |
             apk add --no-cache py-pip=9.0.0-r1
             pip install awscli==1.11.76
-           
-            
+      - run: mvn dependency:go-offline 
+      - run: mvn clean package
+      - store_artifacts:
+          path: target/classes
+          destination: docker-circleci
       - run:
           name: Build application Docker image
           command: |
