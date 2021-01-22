@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# usage: ./deploy.sh master
+# usage: ./deploy.sh
 
 NOW=`date +%s`
 
