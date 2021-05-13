@@ -1,4 +1,4 @@
-##   Git - CircleCi - AWS ECR - AWS ECS demo  #
+##   Git - CircleCi - AWS ECR - AWS ECS   #
 
 An example dockerized  "Wildfly" application that will deploy to amazon ECS using CircleCi whenever the master branch is updated.
 
