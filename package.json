@@ -9,7 +9,7 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "hapi": "^16.4.3",
-    "hapi-routes": "^3.0.0",
+    "hapi-routes": "^4.0.0",
     "hapi-swagger": "^7.7.0",
     "inert": "^4.2.0",
     "joi": "^10.6.0",
